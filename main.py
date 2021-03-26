@@ -81,14 +81,13 @@ def reverse_proxy(path: str):
 	else:
 		return f"Unable to handle given method: '{flask.request.method}'"
 
-
-app.run(
-    host="0.0.0.0",
-    port=8080,
-    debug=False,
-    threaded=True,
-    ssl_context=("ssl/cert.pem", "ssl/key.pem")
-)
+if __name__ == '__main__':
+    app.run(
+        host="0.0.0.0",
+        port=8080,
+        debug=False,
+        ssl_context=("ssl/cert.pem", "ssl/key.pem")
+    )
 
 # Serves a reverse proxy to unblock Discord!
 # Note: SSL Context are unsupported by repl.it
